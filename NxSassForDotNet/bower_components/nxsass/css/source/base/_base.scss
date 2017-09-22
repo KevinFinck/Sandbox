@@ -1,0 +1,121 @@
+//This file should only set standards for base html tags
+html {
+  box-sizing: border-box;
+}
+
+html, body {
+  //height: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+p {
+  font-size: nxsass(type, base-size);
+  line-height: nxsass(type, base-line);
+  margin-bottom: nxsass(type, base-line);
+  font-weight: nxsass(font, weight--light);
+}
+
+body {
+  font-family: nxsass(font, body);
+  background: nxsass(images, background) no-repeat center center fixed;
+  background-size: cover;
+  color: nxsass(color, theme-text);
+  font-size: nxsass(type, base-size);
+  line-height: nxsass(type, base-line);
+  font-weight: nxsass(font, weight--light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  color: nxsass(color, dark);
+  font-family: nxsass(font, header);
+}
+
+h1 {
+  font-size: nxsass(type, base-size) * 2.7;
+  line-height: nxsass(type, base-line) * 2.7;
+  margin-bottom: nxsass(type, base-line);
+}
+
+h2 {
+  font-size: nxsass(type, base-size) * 2.3;
+  line-height: nxsass(type, base-line) * 2.3;
+  margin-bottom: nxsass(type, base-line);
+}
+
+h3 {
+  font-size: nxsass(type, base-size) * 2;
+  line-height: nxsass(type, base-line) * 2;
+  margin-bottom: nxsass(type, base-line);
+  font-weight: nxsass(font, weight--bold);
+}
+
+h4 {
+  font-size: nxsass(type, base-size) * 1.3;
+  line-height: nxsass(type, base-line) * 1.3;
+  margin-bottom: nxsass(type, base-line) / 2.5;
+}
+
+h5 {
+  font-family: nxsass(font, header);
+  font-size: nxsass(type, base-size);
+  line-height: nxsass(type, base-line);
+  margin-bottom: nxsass(type, base-line) / 4;
+  font-weight: nxsass(font, weight--bold);
+}
+
+h6 {
+  font-family: nxsass(font, header);
+  color: lighten(nxsass(color, theme-text), 20%);
+  font-style: italic;
+  font-size: nxsass(type, base-size);
+  line-height: nxsass(type, base-line);
+  margin-bottom: nxsass(type, base-line) / 4;
+  font-weight: nxsass(font, weight--light);
+}
+
+a {
+  cursor: pointer;
+  color: nxsass(color, light);
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+hr {
+  //width:50%;
+  border: 0;
+  height: 1px;
+  background: lighten(nxsass(color, theme-text), 40%);
+  margin-bottom: nxsass(type, base-line);
+}
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0 ;
+}
+section {
+  @extend %cleared;
+}
+
+//reset lists because we typically don't utilize them in their default way. See Extends for normal lists
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: nxsass(type, base-size);
+  font-weight: nxsass(font, weight--light);
+}

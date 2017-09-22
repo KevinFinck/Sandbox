@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/app.css">
+  </head>
+
+  <body ng-app="myApp" layout="row" ng-cloak>
+    Just plane body text.
+
+    <section class="myClass">
+      This uses myClass.
+    </section>
+
+    <div ng-controller="appController" flex="40" class="boxWithHeight">
+      Angular says: {{ greeting }}
+      <input ng-model="message">
+      <md-button class="md-raised" ng-click="clickMe(message)">Click Me!</md-button>
+    </div>
+
+
+
+    <!-- Angular Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-aria.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.min.js"></script>
+
+    <!-- Application Scripts -->
+    <script src="./js/app.js"></script>
+    <script src="./js/appService.js"></script>
+    <script src="./js/appController.js"></script>
+  </body>
+</html>

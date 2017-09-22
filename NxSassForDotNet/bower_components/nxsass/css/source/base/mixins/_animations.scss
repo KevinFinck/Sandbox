@@ -1,0 +1,40 @@
+// Custom Animation
+@include keyframes(spin) { // Full Spin
+  from { @include transform(rotate(0deg)); }
+  to { @include transform(rotate(360deg)); }
+}
+@include keyframes(tilt) { // Side tilt
+  0% { @include transform(rotate(0deg)); }
+  25% { @include transform(rotate(7deg)); }
+  75% { @include transform(rotate(-7deg)); }
+}
+@include keyframes(font-pulse) {
+  10%  {font-size: 200%; top: -15px;}
+  100% {font-size: auto;}
+}
+
+@mixin spinner {
+  -webkit-animation: {
+    duration:.5s;
+    name: spin;
+    direction: normal;
+    iteration-count: infinite;
+    timing-function: linear;
+    }
+}
+@mixin tilter {
+  -webkit-animation: {
+    duration:5s;
+    name: tilt;
+    direction: normal;
+    iteration-count: infinite;
+    timing-function: linear;
+    }
+}
+
+@mixin font-pulser($iteration: 1, $duration: 1s) {
+  @include animation-name(font-pulse);
+  @include animation-duration($duration);
+  @include animation-timing-function(ease-out);
+  @include animation-iteration-count($iteration);
+}

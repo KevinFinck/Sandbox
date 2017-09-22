@@ -1,0 +1,8 @@
+{
+  "name": "app-name",
+  "version": "0.0.1",
+  "devDependencies": {
+    "nxsass": "git@github.com:InCommDigitalSolutions/nxsass.git"
+  },
+  "private": true
+}

@@ -1,0 +1,60 @@
+@mixin icon-text($background: hsla(221, 95%, 61%, 0), $color-icon: nxsass(incomm, ic--midlightgrey), $color-text: white) {
+  position: relative;
+  background: $background;
+  padding: 4px 4px 3px 4px;
+  line-height:19.25px;
+  transition: all 0.02s ease-in-out;
+  border-radius: 20px;
+  @include float();
+  .fa {
+    color: $color-icon;
+    font-size: 24px;
+    transition: all 0.2s ease-in-out;
+    transform-style: preserve-3d;
+    text-align: center;
+    vertical-align: middle;
+    width: 31px;
+    text-align: center;
+  }
+  .action-text {
+    position: absolute;
+    white-space: nowrap;
+    z-index: 3;
+    top: 0;
+    left: 0px;
+    opacity: 0.0;
+    display: inline-block;
+    width: 1px;
+    overflow: hidden;
+    font-weight: 100;
+    line-height: 31px;
+    padding: 0 9px 0 3px;
+    border-radius: 0 20px 20px 0;
+    color: $color-text;
+    font-size: 0.0em;
+    font-weight: normal;
+    background: $background;
+    transition: all 0.05s ease-in-out;
+  }
+  &:hover {
+    background: opacify($background, 0.95);
+    border-radius: 20px 0 0 20px;
+    padding: 4px 0px 3px 4px;
+    margin-right:0px;
+    .action-text {
+      left: 35px;
+      opacity: 1;
+      background: opacify($background, 0.95);
+      font-size: 15px;
+      width: auto;
+      overflow: visible;
+      text-shadow: 0 1px 0 darken(opacify($background, 1), 20);
+    }
+    //flip icon and colorize
+    .fa {
+      transform: rotateY(360deg);
+      color: $color-text;
+      text-shadow: 0 1px 0 darken(opacify($background, 1), 20);
+    }
+  }
+}

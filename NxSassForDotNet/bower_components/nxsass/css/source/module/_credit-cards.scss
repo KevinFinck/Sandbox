@@ -1,0 +1,200 @@
+.credit-card {
+  position: relative;
+}
+
+.card-type {
+  width: 100px;
+  position: absolute;
+  top: 9px;
+  right: 15px;
+  height: 32px;
+  text-align: right;
+}
+
+.credit-card-front {
+  @extend %panel;
+  @include float();
+  width: 80%;
+  padding: 20px 20px 25px 20px;
+  border: 1px solid darken(nxsass(panel, background), 10);
+  position: relative;
+  height: 100%;
+  overflow: visible;
+  box-shadow: inset 0 -2px 0 0 nxsass(incomm, ic--superlightgrey), 3px 0 3px -3px nxsass(incomm, ic--lightgrey);
+  border-radius: nxsass(panel, border-radius) + 4;
+  @include breakpoint(mobile) {
+    width: 100%;
+  }
+
+  .invalid-message {
+    opacity: 0;
+  }
+  .card-number, .card-exp-date {
+    margin-top: 10px;
+  }
+  .card-exp-date {
+    label {
+      @include float();
+      width: 50%;
+      min-width: 50%;
+      &:last-child {
+        padding-left: nxsass(type, gutter) / 2;
+      }
+    }
+  }
+}
+
+.card-ccv {
+  transition: all 0.25s ease-in-out;
+  margin-top: 8px;
+  width: 20%;
+  height: 170px;
+  border: 1px solid darken(nxsass(panel, background), 10);
+  background: lighten(nxsass(incomm, ic--superlightgrey), 7);
+  padding: 22px 11px 26px;
+  @include float(top);
+  border-left: none;
+  border-radius: 0px nxsass(panel, border-radius) + 4 nxsass(panel, border-radius) + 4 0px;
+  box-shadow: inset 0 1px 0 0 lighten(nxsass(incomm, ic--superlightgrey), 8), inset 0 -1px 0 0 lighten(nxsass(incomm, ic--superlightgrey), 3), 0 1px 1px 1px rgba(0, 0, 0, 0.03);
+  @include breakpoint(mobile) {
+    width: 95%;
+    margin: 0 6px;
+    border-top: none;
+    border-left: 1px solid darken(nxsass(panel, background), 10);
+    padding: 7px 11px;
+    height: 101px;
+    border-radius: 0px 0 nxsass(panel, border-radius) + 4 nxsass(panel, border-radius) + 4;
+  }
+
+  label {
+    min-width: 50px;
+    font-size: 10px;
+    @include breakpoint(mobile) {
+      padding-left: 66.66%;
+    }
+
+    .invalid-message {
+      display: none;
+    }
+  }
+  i.tooltip-icon {
+    font-size: 1.2em;
+  }
+  input {
+    width: 50px;
+  }
+}
+
+label .invalid-message {
+  opacity: 0;
+}
+
+@mixin ccv--mobile {
+  .tooltip-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 66.66%;
+  }
+  .tooltip--left {
+    display: block;
+    margin-left: 0;
+    top: 29px;
+    width: 90%;
+    font-size: 10px;
+    background-color: hsl(0, 0%, 90%);
+    color: hsl(0, 0%, 50%);
+    &:after {
+      top: 31px;
+      right: -9px;
+      border-left: 15px solid hsl(0, 0%, 90%);
+    }
+  }
+  .fa-question-circle:before {
+    content: "";
+  }
+}
+
+//modifications for card card-type
+.credit-card--visa {
+  @extend .credit-card;
+  .credit-card-front {
+    border: 1px solid lighten(desaturate(hsl(218, 78%, 67%), 10), 15);
+    box-shadow: inset 0 -2px 0 0 hsla(237, 61%, 39%, 0.2), inset 0 50px 150px -11px hsla(218, 78%, 67%, 0.16), inset 0 2px 0 0 hsla(0, 100%, 100%, 0.5);
+  }
+  .card-type {
+    color: nxsass(credit-cards, visa);
+  }
+  @include breakpoint(mobile) {
+    @include ccv--mobile;
+  }
+}
+
+.credit-card--mastercard {
+  @extend .credit-card;
+  .credit-card-front {
+    border: 1px solid lighten(desaturate(hsl(34, 73%, 39%), 20), 35);
+    box-shadow: inset 0 -2px 0 0 hsla(34, 73%, 39%, 0.2), inset 0 50px 150px -11px hsla(34, 73%, 39%, 0.16), inset 0 2px 0 0 hsla(0, 100%, 100%, 0.5);
+  }
+  .card-type {
+    color: nxsass(credit-cards, mastercard);
+  }
+  @include breakpoint(mobile) {
+    @include ccv--mobile;
+  }
+}
+
+.credit-card--americanexpress {
+  @extend .credit-card;
+  .credit-card-front {
+    padding: 61px 20px 20px;
+    width: 100%;
+    border: 1px solid lighten(desaturate(hsl(158, 73%, 39%), 20), 35);
+    box-shadow: inset 0 -2px 0 0 hsla(158, 73%, 39%, 0.2), inset 0 50px 70px -11px hsla(158, 73%, 65%, 0.07), inset 0 2px 0 0 hsla(0, 100%, 100%, 0.5);
+  }
+  .card-type {
+    color: nxsass(credit-cards, americanexpress);
+    top: 11px;
+    right: auto;
+    left: 20px;
+    width: 140px;
+    text-align: left;
+  }
+  .card-ccv {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin-top: 0px;
+    padding: 10px 20px 0px 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+    width: 30%;
+    height: inherit;
+    label {
+      text-align: right;
+      @include breakpoint(mobile) {
+        padding-left: 0;
+      }
+
+      &:before {
+        display: none;
+      }
+    }
+    .tooltip-icon {
+      text-align: left;
+    }
+  }
+}
+
+.credit-form__message-panel {
+  @extend %panel;
+  position: absolute;
+  margin-top: 10px;
+  .message-panel--overlay {
+    width: 80%;
+    top: 0;
+    left: 0;
+    margin: 30px 3% 10px 3%;
+  }
+}

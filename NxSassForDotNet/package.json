@@ -1,0 +1,23 @@
+{
+  "name": "nxsass",
+  "description": "A collection of front-end objects as Sass Modules and HTML patterns",
+  "version": "4.5.6",
+  "author": "Incomm Digital Solutions",
+  "private": true,
+  "devDependencies": {
+    "node-bourbon": "~1.0.0",
+    "gulp": "^3.5.5",
+    "gulp-util": "^2.2.14",
+    "gulp-notify": "^1.0.0-beta",
+    "gulp-sass": "^0.7.2",
+    "gulp-livereload": "^1.2.0",
+    "tiny-lr": "0.0.5",
+    "gulp-connect": "^1.0.7",
+    "gulp-mustache": "^0.2.0",
+    "gulp-file-include": "^0.2.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-ruby-sass": "^0.4.1",
+    "gulp-autoprefixer": "0.0.7",
+    "gulp-plumber": "^0.6.0"
+  }
+}

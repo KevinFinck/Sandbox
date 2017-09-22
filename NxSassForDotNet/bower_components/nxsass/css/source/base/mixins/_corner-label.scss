@@ -1,0 +1,15 @@
+@mixin corner-label($text: "Example", $left: auto, $right: auto, $color: #898989) {
+    &:after {
+    content:"#{$text}";
+    background:#000;
+    position:absolute;
+    top:0px;
+    right: $right;
+    left:$left;
+    padding:3px 4px;
+    font-size:10px;
+    color:$color;
+    border-radius:nxsass(panel, border-radius);
+    z-index: 2;
+  }
+}

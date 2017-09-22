@@ -1,0 +1,5 @@
+@mixin float($valign: middle) {
+  display: inline-block;
+  margin-right: -4px;
+  vertical-align:$valign;
+}

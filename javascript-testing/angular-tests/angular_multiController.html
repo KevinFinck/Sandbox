@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>   <!-- MaxCDN -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+
+    <script src="./multiController.js"></script>
+</head>
+
+<body>
+    <div ng-app="myMultiControllerApp">
+        
+        <h2>Customer controller</h2>
+        <div data-ng-include="'scripts/customer/customer.html'"></div>        
+
+        <div ng-controller="sqlTestController">
+            <h2>sqlTestController</h2>
+            <table>
+                <tr><th>Company</th><th>City</th><th>Country</th></tr>
+                <tr ng-repeat="customer in customers">
+                    <td>{{ customer.Company }}</td>
+                    <td>{{ customer.City }}</td>
+                    <td>{{ customer.Country }}</td>
+                </tr>
+            </table>
+
+            <h2>{{ helloSql }}</h2>
+        </div>
+
+        <div ng-controller="homeController">
+            <p>
+                Home Controller: {{ message }}
+            </p>
+        </div>
+
+        <div ng-controller="aboutController">
+            <p>
+                About Controller: {{ about }}
+            </p>
+        </div>
+
+        <div ng-init="firstName='John'">
+            Simple test without controller, the name is: {{ firstName }}
+        </div>
+
+    </div>
+    
+    
+    
+    <!-- app -->
+    <script src="/scripts/customer/customerController.js"></script>
+</body>
+
+</html>

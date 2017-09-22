@@ -1,0 +1,1 @@
+https://github.com/shuyu/angular-material-fileinput

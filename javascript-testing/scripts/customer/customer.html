@@ -1,0 +1,12 @@
+﻿<div ng-controller="CustomerController">
+    <table>
+        <tr><th>Company</th><th>City</th><th>Country</th></tr>
+        <tr ng-repeat="customer in customers">
+            <td>{{ customer.Company }}</td>
+            <td>{{ customer.City }}</td>
+            <td>{{ customer.Country }}</td>
+        </tr>
+    </table>
+
+    <h2>{{ helloSql }}</h2>
+</div>

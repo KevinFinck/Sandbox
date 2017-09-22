@@ -1,0 +1,11 @@
+{
+  "name": "javascript-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "live-server --port=8082 --entry-file=./modules-tests/test.html"
+  },
+  "author": "",
+  "license": "ISC"
+}

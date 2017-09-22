@@ -1,0 +1,54 @@
+.tab-subnav {
+  border-bottom: 1px solid transparentize(nxsass(color, theme-text), 0.4);
+  position: relative;
+  z-index: 1;
+  margin: 0 -12px 0;
+  //width: 100%;
+  ul {
+    margin: 0;
+    margin-top: -1px;
+  }
+  label {
+    margin-bottom: 0;
+    text-align: center;
+    min-width: 0;
+  }
+}
+
+.tab-subnav-category {
+  border: 1px solid transparentize(nxsass(color, theme-text), 0.4);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  display: inline-block;
+  padding: 9px nxsass(type, gutter);
+  position: relative;
+  margin: 0;
+  margin-bottom: -2px;
+  background-color: transparentize(nxsass(incomm, ic--blue), 0.7);
+  @include breakpoint(mobile) {
+    width: ($third)-1%;
+  }
+  @include breakpoint(small) {
+    width: ($third)-1%;
+  }
+  @include breakpoint(medium) {
+    margin: nxsass(type, base-leading)/2 -12px -2px nxsass(type, gutter)+12px; //offsetting the parent border positioning
+  }
+  @include breakpoint(wide) {
+    margin: nxsass(type, base-leading)/2 -12px -2px nxsass(type, gutter)+12px; //offsetting the parent border positioning
+  }
+  label {
+    color: darken(nxsass(color, theme-text), 15);
+  }
+  &.is-active {
+    border: 1px solid nxsass(color, theme-text);
+    border-bottom: 2px solid #fff;
+    z-index: 1000;
+    // margin-bottom: -1px;
+    background-color: white;
+    color: nxsass(color, theme-text);
+    label {
+      color: nxsass(color, theme-text);
+    }
+  }
+}

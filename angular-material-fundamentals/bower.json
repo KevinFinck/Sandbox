@@ -1,0 +1,20 @@
+{
+  "name": "angular-material-fundamentals",
+  "description": "Pluralsight course: https://app.pluralsight.com/player?author=ajden-towfeek&name=angular-material-fundamentals-m3",
+  "main": "index.js",
+  "authors": [
+    "Kevin Finck"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/KevinFinckIDS/Personal",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.0.8"
+  }
+}

@@ -1,0 +1,69 @@
+.cube-wrapper {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  min-width:200px;
+  width: 200px;
+  height: 180px;
+  margin: nxsass(type, base-line) nxsass(type, gutter);
+  padding: 0;
+  cursor:pointer;
+  &:hover {
+      .front {
+          @include transform(rotateX(90deg) translateY(100px));
+        }
+        .top{
+          @include transform(rotateX(0deg) translateY(0px));
+        }
+    }
+  .front,.top {
+    height: 180px;
+    @include backface-visibility(hidden);
+    border-radius: 3px;
+    border:1px solid nxsass(incomm,ic--superlightgrey);
+    @include bg-transparentize();
+    transition: all .23s linear;
+  }
+  .front {
+    @include transform(rotateX(0deg) translateY(0px));
+    @include transform-origin(bottom center);
+  }
+  .top {
+    @include transform(rotateX(90deg) translateY(0px));
+    @include transform-origin(top center);
+    top: 0;
+    position: absolute;
+    margin: 0 auto;
+    width: 100%;   
+}
+  p {
+    position: absolute;
+    width: 100%;
+    color: nxsass(color, light);
+    text-align: center;
+    top: 40%;
+    left: 50%;
+    font-size: 1.2em;  
+    @include transform(translate(-50%,-50%));
+    padding: 0 4.5%;
+  }
+}
+// IE 8 & 9 crap, put in a conditional style sheet if needed
+  // .cube-wrapper {
+  //   .top {
+  //     display: none;
+  //     top: 0;
+  //     left: 0;
+  //     background: #FFF;
+  //   }      
+  //   p {
+  //     top: 25%;
+  //     left: 0;
+  //     transform: translate(0,0);
+  //   }
+  //   &:hover {
+  //     .top {
+  //       display: block;
+  //     }
+  //   }
+  // }

@@ -1,0 +1,56 @@
+// app.scss is your application style manifest.
+// We import configuration and base items first with a sub-manifest config file in /base
+
+//========================================================
+// BASE
+@import "base/_config";
+
+// Copy source-template into your css directory.
+// _config includes several nxsass dependencies and tools.
+// It also includes a local empty _app-vars file where you
+// define app variables and override nxsass defaults.
+// Also we include an empty local _base file for defining
+// core HTML tag styles.
+//========================================================
+
+//========================================================
+// nxsass MODULES
+// To use nxsass you may choose to include any modules you require.
+// If you use our 'gulp bower' task these paths should be correct.
+// Comment in only what you need ========================
+
+
+// @import "C:\\Code\\GitHub\\Personal\\NxSassForDotNet\\css\\bower_components\\nxsass\\css\\source\\module\\_button.scss";
+@import "../../bower_components/nxsass/css/source/module/_button";
+@import "../../bower_components/nxsass/css/source/module/_container";
+
+
+// @import "./bower_components/nxsass/css/source/module/_button";
+// @import "./bower_components/nxsass/css/source/module/_container";
+// @import "./bower_components/nxsass/css/source/module/_customize";
+// @import "./bower_components/nxsass/css/source/module/_date-time";
+// @import "./bower_components/nxsass/css/source/module/_form";
+// @import "./bower_components/nxsass/css/source/module/_grid-picker";
+// @import "./bower_components/nxsass/css/source/module/_loader";
+// @import "./bower_components/nxsass/css/source/module/_location";
+// @import "./bower_components/nxsass/css/source/module/_modal";
+// @import "./bower_components/nxsass/css/source/module/_notify";
+// @import "./bower_components/nxsass/css/source/module/_progress-bar";
+// @import "./bower_components/nxsass/css/source/module/_progress-nav";
+// @import "./bower_components/nxsass/css/source/module/_rotation-cube";
+// @import "./bower_components/nxsass/css/source/module/_tab-subnav";
+// @import "./bower_components/nxsass/css/source/module/_tests";
+// @import "./bower_components/nxsass/css/source/module/_toggle";
+// @import "./bower_components/nxsass/css/source/module/_tooltip";
+// @import "./bower_components/nxsass/css/source/module/_uploader";
+//========================================================
+
+
+//==============================================================
+// APPLICATION MODULES
+// This is where you add sass modules in your application
+// Place them in your local /module directory as shown below
+//==============================================================
+
+@import "module/_demo";
+

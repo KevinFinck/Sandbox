@@ -1,0 +1,76 @@
+.list-table{
+  @extend %cleared;
+  .is-empty {
+    display: inline-block;
+    padding: nxsass(type, base-leading);
+  } 
+}
+.list-table-data, .list-table-header {
+    display:inline-block;
+    width:13%;
+    min-width: 70px;
+    vertical-align: middle;
+    padding-right: nxsass(type, gutter)/2;
+    font-weight: nxsass(font, weight--normal);
+    position: relative;
+    p {
+      margin: 0;
+    }
+}
+.list-table-headers {
+    border-bottom: 1px solid nxsass(incomm, ic--superlightgrey);
+    padding: nxsass(type, base-leading)/4 nxsass(type, gutter)/2;
+}
+  //cell modifications
+  @each $list-table-mod in quantity, value, brand, id, po, product, fees, subtotal, date {
+    .list-table--#{$list-table-mod} {
+      @extend .list-table-header;
+    }
+  }
+  @each $list-table-mod in quantity, value, brand, id, po, product, fees, subtotal, date {
+    .list-table-data--#{$list-table-mod} {
+      @extend .list-table-data;
+    }
+  }
+
+.list-table-item {
+  vertical-align: middle;
+  padding: nxsass(type, base-leading)/2 nxsass(type, gutter)/2;
+  height: 100%;
+  opacity: 1;
+  @include transition(all .18s ease-in-out);
+  &:nth-child(even) {
+    background:lighten(nxsass(incomm, ic--lightgrey), 15);
+  }
+  &:hover {
+    background:lighten(nxsass(incomm, ic--lightgrey), 8);
+  }
+  &.ng-leave.ng-leave-active {
+    @include transition(all .1s ease-in-out);
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+  }
+}
+//column specific customizations --add to as needed
+.list-table--brand, .list-table-data--brand {
+  width: 23%;
+}
+.list-table-data--id, .list-table-data--po {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.list-table--delete {
+  @extend .list-table-data;
+  width: 31px;
+  @include transition(all .2s linear);
+  &:hover i {
+    font-size: 1.3em;
+    color: nxsass(incomm, ic--red);
+    @include transition(all .2s linear);
+  }
+}
+

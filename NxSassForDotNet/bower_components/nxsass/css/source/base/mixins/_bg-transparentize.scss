@@ -1,0 +1,3 @@
+@mixin bg-transparentize($color: nxsass(incomm, ic--white), $transparency: .4) {
+    background: transparentize($color, $transparency);
+}

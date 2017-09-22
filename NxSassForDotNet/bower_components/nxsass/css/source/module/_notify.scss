@@ -1,0 +1,123 @@
+.notify {
+  @include clearfix();
+  padding: nxsass(type, base-leading) nxsass(type, gutter)/2;
+  border-radius:nxsass(panel, border-radius);
+  @include bg-transparentize(darken(nxsass(incomm, ic--darkgrey), 5), .08);
+  border:1px solid darken(nxsass(incomm, ic--darkgrey), 20);
+  color:nxsass(incomm, ic--white);
+  box-shadow:inset 0 1px 0 0 hsla(0,0,100%, 0.2), inset 0 -3px 8px 0 hsla(0,0,0,0.3), 0 2px 3px 0 hsla(0,0,0,0.3);
+  text-shadow:0 1px 0 hsla(0,0,0,0.8);
+  p {
+    color:nxsass(incomm, ic--midlightgrey);
+    margin:2px 0;
+  }
+  .notify-header {
+    font-weight: bold;
+    font-size: nxsass(type, base-size);
+    line-height: nxsass(type, base-leading);
+    color:nxsass(incomm, ic--yellow);
+    i {
+      padding-right: nxsass(type, gutter)/4;
+    }
+  }
+  .notify-actions {
+    text-align: right;
+    a {
+      display: inline-block;
+      margin-left:8px;
+    }
+  }
+}
+.notify--fixed {
+  @extend .notify;
+  z-index:9999;
+  position:fixed;
+  width:100%;
+  top:0;
+  left:0;
+  box-shadow:0 2px 2px 0 hsla(0%,0%,0%,0.12);
+}
+.notify-messages {
+  li {
+    display:none;
+  }
+  p {
+    padding-top: nxsass(type, base-leading)/2;
+    padding-bottom: nxsass(type, base-leading)/2;
+  }
+}
+@each $state in not-recommended, unsupported, not-valid, missing-fields, pending, nominal { //add notification state class here
+  .notify-messages.is-#{$state} {
+    li.#{$state} {
+      display:block;
+      li {
+        display: block;
+        list-style-type: disc;
+      }
+    }
+  }
+}
+
+//=============== ALTERNATE THEMES
+// ERROR
+.notify__error {
+  @extend .notify;
+}
+.notify--fixed__error {
+  @extend .notify--fixed;
+}
+.notify__error, .notify--fixed__error {
+  background-color: darken(nxsass(incomm, ic--red), 5);
+  border:1px solid nxsass(incomm, ic--red);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.3), inset 0 -1px 5px 0 rgba(0, 0, 0, 0.3), 0 2px 3px 0 rgba(0, 0, 0, 0.3);
+  p {
+    color:nxsass(incomm, ic--white);
+  }
+  .notify-header {
+    color:nxsass(incomm, ic--white);
+  }
+}
+// INDETERMINATE
+.notify__indeterminate {
+  @extend .notify;
+}
+.notify--fixed__indeterminate {
+  @extend .notify--fixed;
+}
+.notify__indeterminate, .notify--fixed__indeterminate {
+  @include bg-transparentize(nxsass(incomm, ic--yellow), .08);
+  border:1px solid nxsass(incomm, ic--yellow);
+  box-shadow:inset 0 1px 0 0 hsla(0,0,100%, 0.3), inset 0 -1px 3px 0 hsla(0,0,0,0.2), 0 2px 3px 0 hsla(0,0,0,0.2);
+  text-shadow:0 1px 0 darken(nxsass(incomm, ic--yellow), 10);
+  p {
+    color:nxsass(incomm, ic--darkgrey);
+    text-shadow: none;
+  }
+  .notify-header {
+    color:nxsass(incomm, ic--darkgrey);
+  }
+  a {
+    color: nxsass(incomm, ic--darkgrey);
+    text-decoration: underline;
+  }
+}
+// CALM
+.notify__calm {
+  @extend .notify;
+}
+.notify--fixed__calm {
+  @extend .notify--fixed;
+}
+.notify__calm, .notify--fixed__calm {
+  background-color: darken(nxsass(incomm, ic--white), 5);
+  border:1px solid nxsass(incomm, ic--lightgrey);
+  color: nxsass(incomm, ic--middarkgrey);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, .8), inset 0 -1px 5px 0 rgba(0, 0, 0, 0.1), 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+  text-shadow:0 1px 0 darken(nxsass(incomm, ic--white), 15);
+  p {
+    color:nxsass(incomm, ic--middarkgrey);
+  }
+  .notify-header {
+    color: darken(nxsass(incomm, ic--blue), 10);
+  }
+}

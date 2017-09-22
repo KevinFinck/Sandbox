@@ -1,0 +1,58 @@
+.input--quick-value {
+  @extend %cleared;
+  .label-text {
+    float: none;
+  }
+  input {
+    float: left;
+    width: auto;
+  }
+  select {
+    display: none;
+  }
+  .is-invalid:before {
+    display: none;
+  }
+}
+.custom-value-label {
+  display: inline-block;
+  padding:10px 0 0 15px;
+}
+//Quick values
+.quick-values {
+  @extend %list--horizontal;
+  padding-bottom: 15px;
+  border-bottom: 1px solid nxsass(incomm, ic--superlightgrey);
+  margin-bottom: 15px;
+}
+.quick-value {
+  padding-right: 5px;
+  &:last-child {
+    padding-right: 0;
+  }
+  a.btn--act {
+    margin: 3px 0 2px 0;
+    padding: 7px 10px;
+    background: none;
+    box-shadow: inset 0 -2px 0 0 hsl(0,0%,85%);
+    border: 1px solid hsl(0,0%,73%);
+    text-shadow: none;
+    color: nxsass(incomm, ic--darkgrey);
+    font-weight: nxsass(font, weight--normal);
+    transition: all .09s ease-in-out;
+    min-width: 66px;
+    &:hover {
+      box-shadow: inset 0 -2px 0 0 nxsass(button, color-act);
+      border-color: nxsass(button, color-act);
+    }
+    &.is-selected {
+      color:#fff;
+      background:  nxsass(button, color-act);
+      border-color: darken(nxsass(button, color-act), 5);
+      box-shadow: inset 0 -2px 0 0 nxsass(button, color-act);
+    }
+    &.is-invalid {
+      border-color: nxsass(color, invalid);
+    }
+  }
+}

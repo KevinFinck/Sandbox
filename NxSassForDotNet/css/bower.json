@@ -1,0 +1,21 @@
+{
+  "name": "Nxsass4.Net",
+  "version": "0.0.1",
+  "homepage": "https://github.com/KevinFinckIDS/code-library",
+  "authors": [
+    "Kevin Finck <kfinck@incomm.com>"
+  ],
+  "description": "Test tool for Nxsass using .Net.",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "nxsass": "https://github.com/InCommDigitalSolutions/nxsass.git#4.5.6"
+  }
+}

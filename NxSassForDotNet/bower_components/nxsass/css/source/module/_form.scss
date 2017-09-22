@@ -1,0 +1,232 @@
+form {
+  @extend %cleared;
+  width: 100%;
+  max-width: 1068px;
+  .is-invalid {
+    .label-text {
+      color: nxsass(color, invalid);
+    }
+    input, textarea, select {
+      border-left: 5px solid desaturate(lighten(nxsass(color, invalid), 20), 50);
+    }
+  }
+  .invalid-message {
+    color: nxsass(color, invalid);
+    text-transform: uppercase;
+    font-size: 11px;
+  }
+}
+label{
+  font-family:nxsass(font, body);
+  display: inline-block;
+  text-align: left;
+  color:nxsass(incomm, ic--midlightgrey);
+  width: 100%;
+  min-width: 200px;
+  position: relative;
+}
+.label-text { // keeps error messages inline with label div
+  float: none;
+  display: inline-block;
+}
+input + div { // makes checkbox & radio labels wrap properly with input
+  float: none;
+}
+input + input {
+  margin-top: 10px;
+}
+#{$all-text-inputs}, select, textarea {
+  border:1px solid darken(nxsass(incomm, ic--superlightgrey), 8);
+  border-radius: nxsass(panel, border-radius);
+  box-sizing: border-box; //undoing weird normalizer bs
+  padding:8px 6px;
+  min-height:37px;
+  margin-top: 3px;
+  margin-bottom: 0;
+  background:lighten(nxsass(incomm, ic--superlightgrey), 5);
+  box-shadow:hsla(0,0,0, 0.05) 0 2px 1px 0 inset, hsla(0, 100%, 100%, 0.8) 0 -1px 4px -1px inset;
+  color:darken(nxsass(incomm, ic--midlightgrey), 20);
+  font-weight:500;
+  font-family:nxsass(font, body);
+  text-shadow:rgba(255,255,255, 0.025) 0 1px 0;
+  width: 100%;
+  @include transition (all 0.08s ease-in-out);
+  @include placeholder {
+    color:nxsass(incomm, ic--lightgrey);
+    font-style: italic;
+  }
+}
+button {
+   font-family:nxsass(font, body);
+}
+input[type="checkbox"], input[type="radio"] {
+  float: left;
+  margin:4px 10px 0 0;
+}
+input[type="file"] {
+  margin: 3px 0px;
+}
+select {
+  height: 37px;
+  margin: 3px 0 0 0px;
+  box-shadow:hsla(0,0,0, 0.05) 0 -2px 1px 0 inset, hsla(0, 100%, 100%, 0.8) 0 1px 4px -1px inset;
+}
+.input--color {
+  input[type="color"] {
+    padding:0 5px;
+    border:none;
+    background:none;
+    box-shadow:0 0 0px 1px hsla(216, 65%, 64%, 0.36);
+    transition:all 0.25s ease-in-out;
+    &:hover {
+      box-shadow:0 0 0px 1px hsla(216, 65%, 64%, 0.86);
+      cursor: pointer;
+    }
+  }
+}
+
+//valid state
+label.is-valid {
+  #{$all-text-inputs}, select {
+    border-left: 5px solid hsl(210, 50%, 60%);
+  }
+}
+%message-bubble {
+  font-size: 12px;
+  font-family:nxsass(font, body);
+  background-color: nxsass(incomm, ic--white);
+  box-shadow:0 0 1px 1px hsla(0,0,0,0.3);
+  line-height: 1.3em;
+  padding: 3px 5px;
+  position: absolute;
+  border-radius: nxsass(panel, border-radius);
+  z-index:5;
+}
+
+.invalid-message {
+  @extend %message-bubble;
+  opacity:0;
+  top:5px;
+  right:0;
+  position:absolute;
+  transition:all 0.08s ease-in-out;
+}
+label:hover, label:active, label:focus {
+  .invalid-message {
+    opacity:1.0;
+    top:0;
+  }
+}
+.invalid-message--below {
+  width: 100%;
+  left: 0;
+  opacity:1.0;
+  margin-bottom: 10px;
+  margin-top: 3px;
+  line-height: nxsass(type, base-leading);
+}
+// For demo, needs to be hidden until submit check
+
+
+label:hover, label:active, label:focus {
+  .invalid-message--below {
+    top: 96%;
+  }
+}
+.is-required {
+  #{$all-text-inputs}, select {
+    border-left:5px solid nxsass(color, required);
+  }
+
+}
+
+// INVALID ====================
+.is-invalid {
+  font-weight: nxsass(font, weight--bold);
+  #{$all-text-inputs}, select {
+    border-color:nxsass(color, invalid);
+    &:focus{
+      border:lighten(nxsass(color, invalid), 25);
+    }
+  }
+  &:before {
+    content: '!';
+    color:nxsass(color, invalid);
+    position: absolute;
+    width: 10px;
+    right: 10px;
+    text-align: right;
+    top: 30px;
+    font-weight: nxsass(font, weight--bold);
+    font-size: 20px;
+  }
+  &.is-dirty, &.is-dirty.is-required {
+    #{$all-text-inputs}, select{
+      background-color: desaturate(lighten(nxsass(incomm, ic--red), 55), 35);
+      border-left:5px solid nxsass(color, required);
+    }
+  }
+  &.input--select:before{
+    right: 30px;
+  }
+  &.input--number, &.input--checkbox, &.input--radio  {
+    &:before {
+      display:none;
+    }
+  }
+}
+
+//PRISTINE=========================
+.is-pristine {
+    #{$all-text-inputs}, select {
+    border:1px solid nxsass(incomm, ic--superlightgrey);
+    border-left:5px solid nxsass(incomm, ic--superlightgrey);
+  }
+  &.is-required {
+    #{$all-text-inputs}, select {
+      border-left:5px solid nxsass(color, required);
+    }
+  }
+}
+.is-pristine.is-required.is-valid {
+  #{$all-text-inputs}, select {
+    border-left: 5px solid nxsass(color, valid);
+  }
+}
+.is-pristine.is-required.is-invalid {
+  &:before {
+    display: none;
+  }
+  .label-text {
+    color:nxsass(incomm, ic--midlightgrey);
+  }
+  #{$all-text-inputs}, select {
+    border-left: 5px solid nxsass(color, required);
+  }
+}
+
+.is-invalid-email {
+  position: relative;
+  &:before {
+    display: block;
+    content:"Invalid email";
+    position: absolute;
+    bottom:-19px;
+    height: 12px;
+    right:0;
+    font-size: 10px;
+    line-height: 12px;
+    padding:1px 3px;
+    color:nxsass(incomm, ic--white);
+    background: nxsass(color, invalid);
+    border-radius:0 nxsass(panel, border-radius) 0 nxsass(panel, border-radius);
+  }
+  & + input[type="email"]{
+    border:1px solid nxsass(color, invalid);
+  }
+}
+ //============== angular field validation classes
+
+input.ng-invalid-required {
+  @extend .is-required;
+}

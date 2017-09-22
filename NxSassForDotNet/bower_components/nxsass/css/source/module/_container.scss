@@ -1,0 +1,30 @@
+.container {
+  @extend %cleared;
+  box-sizing: border-box;
+  width:100%;
+  max-width:950px;
+  margin:nxsass(container, margin);
+  padding:nxsass(container, padding);
+  background:nxsass(container, background);
+  @include breakpoint(wide) {
+    width:950px;
+    margin:0 auto;
+  }
+  @include breakpoint(small) {
+    padding:0 5px;
+  }
+  @include breakpoint(mobile) {
+    padding:0 3px;
+  }
+}
+.container.is-edit-mode {
+  @include breakpoint(wide){
+    float: left;
+    margin:0 0 0 35%;
+    width:65%;
+    padding:nxsass(type, gutter); 
+  }
+  float: none;
+  width:100%;
+  margin-bottom: 500px;
+}

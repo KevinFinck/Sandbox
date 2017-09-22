@@ -1,0 +1,89 @@
+.image-editor{
+  position: relative;
+  width:auto;
+  z-index:5;
+
+  .image-editor-canvas {
+    width:auto; //842px
+    margin: 10px 0;
+    position: relative;
+    overflow: hidden; 
+    border:1px solid nxsass(incomm, ic--midlightgrey);
+    border-radius:nxsass(panel, border-radius);
+    &:before {
+      content: "Drag Image Edges to Resize";
+      position:absolute;
+      top:0px;
+      left:0px;
+      z-index: 2;
+      font-size:10px;
+      background:nxsass(incomm, ic--blue);
+      color:nxsass(incomm, ic--darkgrey);
+      padding:2px 6px;
+      color:nxsass(incomm, ic--white);
+      border-radius:0 0 nxsass(panel, border-radius) 0;
+    }
+    &:after {
+      content: "Drag Image Center to Position";
+      position:absolute;
+      z-index: 2;
+      top:0px;
+      left:45%;
+      font-size:10px;
+      color:nxsass(incomm, ic--darkgrey);
+      background:nxsass(incomm, ic--blue);
+      padding:2px 6px;
+      color:nxsass(incomm, ic--white);
+      border-radius:0 0 nxsass(panel, border-radius) nxsass(panel, border-radius);
+    }
+  }
+  .image-editor-picture {
+    position:absolute;
+    top:50px;
+    left:100px;
+    z-index:-1;
+  }
+
+ $opacity-mask:0.93;
+ $color-mask:nxsass(incomm, ic--darkgrey);
+   .mask{
+    opacity:$opacity-mask;
+    transition:all 0.18s ease-in-out;
+    &:hover {
+      opacity:0.4;
+    }
+   }
+  .mask--hole {
+    margin:0 auto;
+    border-left:75px solid $color-mask;
+    border-right:75px solid $color-mask;
+    background: none;
+  }
+  .mask--top, .mask--bottom{
+    height:75px;
+    background:$color-mask;
+  }
+}
+
+$opacity-bleed:0.45;
+ $color-bleed:nxsass(incomm, ic--red);
+.bleed{
+  opacity:$opacity-bleed;
+  transition:all 0.18s ease-in-out;
+  &:hover {
+    opacity:0.4;
+  }
+ }
+.bleed--hole {
+  margin:0 auto;
+  border-left:10px solid $color-bleed;
+  border-right:10px solid $color-bleed;
+  background: none;
+}
+.bleed--top, .bleed--bottom{
+  height:10px;
+  background:$color-bleed;
+}
+.bleed-warn {
+  color:nxsass(incomm, ic--red);
+}

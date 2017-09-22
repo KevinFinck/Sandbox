@@ -1,0 +1,39 @@
+{
+  "name": "nxsass",
+  "version": "4.5.8",
+  "main": [
+    "./source-template/app.scss"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "bower_components",
+    "docs",
+    "gulp/config-docs.js",
+    "gulp/tasks/dev.js",
+    "gulp/tasks/sass-docs.js",
+    "gulp/tasks/reload-docs.js",
+    "gulp/tasks/fileinclude.js"
+  ],
+  "dependencies": {
+    "normalize-css": "~3.0.0",
+    "bourbon": "~3.1.8",
+    "font-awesome": "^4.1.0"
+  },
+  "devDependencies": {
+    "rainbow": "~1.1.9",
+    "html5shiv": "~3.7.0"
+  },
+  "homepage": "https://github.com/InCommDigitalSolutions/nxsass",
+  "_release": "4.5.8",
+  "_resolution": {
+    "type": "version",
+    "tag": "4.5.8",
+    "commit": "b7eec8743cb87e9dcc8b8f7a4b39b84fb357c72d"
+  },
+  "_source": "https://github.com/InCommDigitalSolutions/nxsass.git",
+  "_target": "4.5.8",
+  "_originalSource": "https://github.com/InCommDigitalSolutions/nxsass.git",
+  "_direct": true
+}

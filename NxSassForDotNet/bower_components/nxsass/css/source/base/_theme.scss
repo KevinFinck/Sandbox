@@ -1,0 +1,108 @@
+$nxsass-vars: (
+  font: (
+    header: ("Josefin Sans", sans-serif),
+    body:   ("Open Sans", sans-serif),
+    code:   ("Source Code Pro", sans-serif),
+    weight--thin: 100,
+    weight--light: 300,
+    weight--regular: 400,
+    weight--normal: 400,
+    weight--bold: 700,
+    weight--heavy: 800
+  ),
+  type: (
+    base-size: 14px,
+    base-line: 14px*1.375,
+    base-leading: 14px*1.375,
+    gutter: 30px
+  ),
+  color: (
+    light:        #8db5e1,
+    dark:         #212121,
+    theme-text:   hsl(0, 0%, 40%),
+    act:          #28AAD0,
+    add:          #5CC281,
+    invalid:      hsl(345, 75%, 40%),
+    valid:        hsl(194, 58%, 74%),
+    required:     hsl(345, 75%, 40%)
+  ),
+  incomm: (
+    ic--red:            #cc0033,
+    ic--blue:           #6699cc,
+    ic--darkgrey:       #333333,
+    ic--middarkgrey:    #666666,
+    ic--midlightgrey:   #999999,
+    ic--lightgrey:      #cccccc,
+    ic--superlightgrey: #e7e7e8,
+    ic--white:          #ffffff,
+    ic--orange:         #DE5A2E,
+    ic--yellow:         #DFAC44
+  ),
+  images: (
+    background:   none,
+    logo:         none,
+    login:        none,
+    login-brand:  none,
+    hero:         none
+  ),
+  credit-cards: (
+    visa:            #23288F,
+    mastercard:      #CC7404,
+    americanexpress: #1BAA76,
+  ),
+  panel: (
+    padding: 15px,
+    border-radius:2px,
+    background: #fff,
+    background--success:rgb(164, 226, 157),
+    margin-top:5px,
+    box-shadow:(hsla(0,0,0,0.09) 0 -3px 0px inset),
+    border: (none)
+  ),
+  toggle: (
+    box-shadow: (inset 0 2px 1px 1px hsla(0,0,0,0.09))
+  ),
+  container: (
+    margin: (0),
+    padding: (0 20px),
+    background: #efefef
+  ),
+  modal: (
+    top: 25%,
+    width: 50%,
+    width--small:30%,
+    width--large:85%
+  ),
+  button: (
+    text-default: #fff,
+    color-act: #6699cc,
+    color-add: #5CC281,
+    color-checkout: #DFAC44,
+    color-warn: #CC0033,
+    color-disabled: #CCC,
+    background--act: #6699cc,
+    use-grad: true,
+    use-boxshad: true,
+    use-boxshad-hover: true
+  )
+);
+
+@function nxsass($key, $value) {
+  @if (map-has-key($app-vars, $key)) {
+  @if (map-has-key( map-get($app-vars, $key), $value)) {
+    @return map-get(map-get($app-vars, $key), $value);
+  } @else {
+    @return map-get(map-get($nxsass-vars, $key), $value);
+  }
+  } @else {
+   @return map-get(map-get($nxsass-vars, $key), $value);
+  }
+}
+
+$half:50%;
+$third:33.33%;
+$quarter:25%;
+
+.important { //not sure where to put this?
+  font-weight: nxsass(font, weight--bold);
+}

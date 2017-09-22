@@ -1,0 +1,221 @@
+.picker--date, .picker--time {
+  position:relative;
+}
+
+%picker-ui {
+  position:absolute;
+  top:60px;
+  border:1px solid hsl(0, 0, 85%);
+  border-radius:nxsass(panel, border-radius);
+  background:hsl(0,0,97%);
+  box-shadow:nxsass(panel, box-shadow), 0 0 6px 3px hsla(0,0,0,0.1);
+  padding:nxsass(type, gutter)/2;
+  @include float();
+}
+
+.date-ui, .time-ui {
+  @extend %picker-ui;
+  .btn--act{
+    margin:15px 20% 0px 20%;
+    width:60%;
+    @include breakpoint(mobile){
+      margin:15px 0px 0px 0px;
+      display:block;
+      width:100%;
+    }
+  }
+}
+.date-ui {
+  min-width:530px;
+  @include breakpoint(small) {
+    min-width:416px;
+  }
+  @include breakpoint(mobile) {
+    min-width:0;
+  }
+}
+
+// ========================= Date
+.month-nav, .months {
+  @extend %cleared;
+}
+.month-nav {
+  a {
+    color:nxsass(incomm, ic--blue);
+    font-size:22px;
+    &:hover {
+      color:darken(saturate(nxsass(incomm, ic--blue), 20), 20);
+    }
+  }
+}
+.month--back {
+  position:absolute;
+  left:5px;
+  top:5px;
+}
+.month--forward {
+  position:absolute;
+  right:5px;
+  top:5px;
+}
+
+.months {
+  font-size:12px;
+}
+
+.month--past, .month--center, .month--future {
+  @include float();
+  background:nxsass(incomm, ic--white);
+  border:1px solid hsl(0, 0, 90%);
+  margin-left:nxsass(type, gutter) / 2;
+  box-shadow:0 3px 0px 1px hsla(0,0,0,0.05);
+  @include breakpoint(small){
+    margin-left:0;
+    font-size:10px;
+    .cal--month a {
+      padding:0px 3px;
+    }
+  }
+  @include breakpoint(mobile){
+    margin-left:0;
+    font-size:12px;
+    .cal--month a {
+      padding:2px 4px;
+    }
+  }
+}
+.month--past {
+  margin-left:0;
+  @include breakpoint(mobile) {
+    display:none;
+  }
+}
+.month--future {
+  @include breakpoint(mobile) {
+    display:none;
+  }
+}
+.month-name {
+  text-align: center;
+}
+.cal--month {
+  th, td {
+    text-align: center;
+
+  }
+  td {
+    color:lighten(nxsass(color, theme-text), 35);
+  }
+  a {
+    color:nxsass(color, theme-text);
+    display:block;
+    padding:2px 4px;
+    &:hover {
+      background:hsl(0,0,90%);
+      text-decoration: none;
+      box-shadow:inset 0 1px 0 0 hsla(0,0,0,0.15);
+    }
+  }
+  .is-today {
+    a {
+      color:nxsass(incomm, ic--orange);
+      text-decoration:underline;
+    }
+  }
+  .is-picked {
+    background:nxsass(incomm, ic--blue);
+    border-radius:nxsass(panel, border-radius);
+    text-shadow:0 1px 0 darken(nxsass(incomm, ic--blue), 20);
+    a {
+      color:nxsass(incomm, ic--white);
+    }
+    &:hover {
+      a {
+        color:nxsass(incomm, ic--middarkgrey);
+        text-shadow:none;
+      }
+    }
+  }
+}
+
+// ========================== Time
+.faces {
+  user-select: none;
+}
+.minutes {
+  margin-left:nxsass(type, gutter)/2;
+}
+.hours, .minutes {
+  position:relative;
+  font-size:12px;
+  width:150px;
+  height:150px;
+  border-radius:100%;
+  border:1px solid hsl(0, 0, 85%);
+  background:nxsass(incomm, ic--white);
+  @include float();
+  box-shadow:0 3px 0px 1px hsla(0,0,0,0.05);
+  .is-picked {
+    a {
+      color:nxsass(incomm, ic--white);
+      background:nxsass(incomm, ic--blue);
+      border-radius:100%;
+      text-shadow:0 1px 0 darken(nxsass(button, background--act), 20);
+    }
+    &:hover {
+      a {
+        color:nxsass(incomm, ic--middarkgrey);
+        text-shadow:none;
+      }
+    }
+  }
+  li {
+    position:absolute;
+    width:72px;
+    top:62px;
+    left:74px;
+    &.label {
+      width:100px;
+      text-align: center;
+      top:65px;
+      left:25px;
+      color:lighten(nxsass(color, theme-text), 35);
+    }
+    @for $i from 1 to 13 {
+      &:nth-child(#{$i}) {
+        transform-origin:left center;
+        transform:rotate($i * 30deg - 90deg);
+        a {
+          transform:rotate(-$i * 30deg + 90deg);
+        }
+      }
+    }
+  }
+  a {
+    color:nxsass(color, theme-text);
+    display:block;
+    float:right;
+    text-align: center;
+    width:25px;
+    padding:3px 3px 2px 3px;
+    border-radius:100%;
+    &:hover {
+      background:hsl(0,0,90%);
+      text-decoration: none;
+      box-shadow:inset 0 1px 0 0 hsla(0,0,0,0.15);
+    }
+  }
+}
+
+.picker--time__toggle {
+  max-width:$third;
+  margin:10px $third 0 $third;
+  .toggle-label {
+    font-weight:normal;
+    font-size:12px;
+  }
+}
+
+
+
+

@@ -1,0 +1,166 @@
+.app__customize {
+  @include breakpoint(wide){
+    height: 100%;
+    float: left;
+    width:35%;
+    position: relative;
+    bottom:auto;
+  }
+  position:fixed;
+  bottom:0;
+  z-index:500;
+}
+
+.customize {
+  @extend %cleared;
+  @include breakpoint(wide) {
+    font-size:12px;
+    position: fixed;
+    height:100%;
+    width:35%;
+    overflow: hidden;
+    margin-bottom:0px;
+  }
+  font-size:12px;
+  background: hsla(0,0,0,0.95);
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:500px;
+  z-index:500;
+  margin-bottom:0px;
+  opacity:0.97; 
+  .btn--kill {
+    font-size: 16px;
+    right:9px;
+    top:8px;
+  }
+}
+//Top horizontal tab-like nav
+.areas {
+  @extend %cleared;
+  list-style: none;
+  margin:0;
+  padding:0;
+  background: hsla(0,0,0,0.95);
+  li {
+    float: left;
+    &.is-selected a{
+      background:hsl(0,0,17%);
+      box-shadow:inset 0 0 15px 1px hsl(0,0,31%);
+      color:nxsass(incomm, ic--lightgrey);
+    }
+  }
+  a {
+    display: inline-block;
+    padding:10px;
+    color:darken(nxsass(incomm, ic--white), 35);
+    text-align: center;
+    border-bottom:1px solid hsl(0,0,5%);
+    transition:all 0.1s ease-in-out;
+    &:hover {
+      border-color:hsl(0,0,20%);
+      color:nxsass(incomm, ic--darkgrey);
+      background:nxsass(incomm, ic--blue);
+      text-decoration: none;
+    }
+  }
+}
+// Controls at the bottom
+.customize-actions {
+  @extend %cleared;
+  text-align: right;
+  position: fixed;
+  background:hsla(0,0,0%,0.90);
+  bottom:0;
+  width:100%;
+  padding:5px nxsass(type, gutter)/2;
+  border-top:1px solid #333;
+  @include breakpoint(wide) {
+    position: absolute;
+    background:hsla(0,0,0%,0.30);
+    padding:nxsass(type, gutter)/2;
+  }
+  button {
+    display: inline-block;
+    margin-right: nxsass(type, gutter)/2;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+  .btn--cancel, .btn--reset, .btn--act {
+    padding:5px 8px;
+  }
+  .btn--cancel {
+    box-shadow:inset 0 0 0 0px nxsass(incomm, ic--red) !important;
+    color:nxsass(incomm, ic--red) !important;
+    transition:all 0.05s ease-in-out;
+    &:hover {
+      background:none;
+      color:nxsass(incomm, ic--white) !important;
+      box-shadow:inset 0 0 22px 16px nxsass(incomm, ic--red) !important;
+    }
+  }
+  .btn--reset {
+    float: left;
+  }
+}
+//Panes =======================
+.pane {
+  margin:0;
+  list-style: none;
+  float: left;
+  background: hsla(0,0,10%,0.95);
+  width:$third;
+  height:100%;
+  p {
+    color:nxsass(incomm, ic--middarkgrey);
+  }
+  .section a, .block a {
+    border-bottom:1px solid hsl(0,0,15%);
+    padding:10px;
+    display: block;
+    &:hover {
+      text-decoration: none;
+      background:hsl(0,0,0%);
+      color:nxsass(color, act);
+    }
+  }
+  .section.is-selected {
+    background:hsl(0,0,7%);
+    box-shadow:inset 0 0 8px 3px #000;
+    a {
+      color:nxsass(incomm, ic--lightgrey);
+    }
+  }
+  .blocks {
+    margin:0;
+    list-style: none;
+  }
+}
+.pane-header {
+  padding-left: 10px;
+  h5 {
+    color:nxsass(incomm, ic--midlightgrey);
+  }
+}
+.pane--control {
+  @extend .pane;
+  overflow-y: auto;
+  width:($third * 2);
+  background:hsl(0,0,6%);
+  border-left:1px solid hsl(0,0,15%);
+  .options {
+    padding:10px;
+  }
+   .section, .block {
+    border-bottom:1px solid hsl(0,0,15%);
+    padding:10px;
+  }
+  textarea {
+    min-height: 100px;
+  }
+}
+
+

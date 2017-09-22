@@ -1,0 +1,15 @@
+//=================================================================		Dev Dependencies
+// Set the following URL to point to your Bourbon library
+@import "../../../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
+//@import "../../../bower_components/sass-list-maps/_sass-list-maps.scss";
+
+//================================================================= 	Core Library Dependencies
+//We start with Normalizer as our foundation. 
+//Point the following at your normalizer component:
+@import "../../../bower_components/normalize-css/normalize.css";
+
+@import "_mixins";    //point to nxsass
+@import "_theme";     //point to nxsass
+@import "_extends";   //point to nxsass
+@import "_base";      //point to nxsass
+@import "_states";    //point to nxsass AND you can create your own local version as needed

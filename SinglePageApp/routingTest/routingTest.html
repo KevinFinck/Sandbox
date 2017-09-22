@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="routingTest">
+<head>
+    <title>Routing Test</title>
+
+    <script src="../scripts/angular.js"></script>
+    <script src="../scripts/angular-route.js"></script>
+    <script src="routingTest.js"></script>
+    <script src="about/aboutController.js"></script>
+    <script src="home/homeController.js"></script>
+</head>
+<body>
+
+
+    <div>
+        <a href="#/">Home</a>
+        <a href="#/about">About</a>
+    </div>
+
+    <div data-ng-controller="mainController">
+
+        <h3>{{ message }}</h3>
+        <pre>$location.path() = {{$location.path()}}</pre>
+
+        <div ng-view></div>
+
+    </div>
+
+</body>
+</html>

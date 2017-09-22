@@ -1,0 +1,19 @@
+.item {
+  margin:0;
+  padding:nxsass(type, base-leading)/4 nxsass(type, gutter)/4;
+  width: 33.33%;
+  vertical-align: middle;
+  &:hover {
+    cursor: pointer;
+  }
+  @include breakpoint(small) {
+    width:50%;
+    margin-right:-4px;
+  }
+  @include breakpoint(mobile) {
+    width:100%;
+  }
+  img {
+    width:100%;
+  }
+}

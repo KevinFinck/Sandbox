@@ -1,0 +1,163 @@
+// _toggle.scss module
+//a binary toggle to replace checkboxes
+
+//  <div class="toggle--switch is-off">
+//    <div class="toggle-label">left</div>
+//    <div class="toggle-label">right</div>
+//    <div class="switch">|||</div>
+//  </div>
+
+.toggle {
+  @extend %cleared;
+  position: relative;
+  border:1px solid darken(nxsass(incomm, ic--superlightgrey), 10);
+  background:nxsass(incomm, ic--superlightgrey);
+  border-radius:nxsass(panel, border-radius);
+  box-shadow:nxsass(toggle, box-shadow);
+  line-height:26px;
+  cursor:pointer;
+  user-select: none;
+}
+
+.toggle-label {
+  @include float(middle);
+  width:50%;
+  text-align:center;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+}
+.switch {
+    border:1px solid darken(nxsass(incomm, ic--superlightgrey), 10);
+    border-radius:nxsass(panel, border-radius);
+    background:nxsass(incomm, ic--white);
+    box-shadow:nxsass(panel, box-shadow);
+    width:50%;
+    text-align: center;
+    position:absolute;
+    padding:3px 0 5px 0;
+    z-index:2;
+    top:-5px;
+    cursor:pointer;
+    color:darken(nxsass(incomm, ic--white),15);
+    text-shadow:0 1px 0 darken(nxsass(incomm, ic--white),8);
+    transition:all .08s ease-in-out;
+    &:hover{
+      color:nxsass(incomm, ic--blue);
+    }
+}
+.toggle--switch {
+  @extend .toggle;
+   @include clearfix(); //temp until extend is fixed in node-sass
+  &.is-on {
+    background:nxsass(incomm, ic--blue);
+    border:1px solid darken(nxsass(incomm, ic--blue),3);
+    box-shadow:nxsass(toggle, box-shadow);
+    color:nxsass(incomm, ic--white);
+    text-shadow:0 1px 0 darken(nxsass(incomm, ic--blue),3);
+    .switch {
+      left:50.5%;
+    }
+  }
+  &.is-off {
+    .toggle-label{
+      color:nxsass(incomm, ic--midlightgrey);
+    }
+    .switch {
+      left:-1px;
+    }
+  }
+}
+
+//a button toggle
+
+%chosen-item {
+  margin-top:0;
+  border:none;
+  top:0;
+  cursor:default;
+  color:nxsass(incomm, ic--white);
+  line-height:27px;
+  background:nxsass(incomm, ic--blue);
+  border-radius:0;
+  box-shadow:inset 0 -1px 0 0 hsla(0, 100%, 100%, 0.41), inset 0 2px 1px 1px hsla(0, 0%, 0%, 0.09);
+}
+
+.toggle--button {
+  @extend .toggle;
+  background:none;
+  border:none;
+  box-shadow:none;
+ .toggle-label {
+    font-weight:nxsass(font, weight--normal);
+    margin-top: -2px;
+    border-radius:nxsass(panel, border-radius);
+    background:nxsass(incomm, ic--white);
+    box-shadow:nxsass(panel, box-shadow);
+    border:1px solid darken(nxsass(incomm, ic--superlightgrey), 10);
+    width:50%;
+    text-align: center;
+    padding:1px 0 3px 0;
+    line-height:27px;
+    cursor:pointer;
+    color:darken(nxsass(incomm, ic--white),15);
+    text-shadow:0 1px 0 rgba(0,0,0,0.08);
+    transition:all .06s ease-in-out;
+    &:hover {
+      color:nxsass(incomm, ic--white);
+      background:desaturate(nxsass(incomm, ic--blue),30);
+      border:1px solid desaturate(darken(nxsass(incomm, ic--blue), 5), 30);
+    }
+  }
+  &.is-right{
+    .toggle-label {
+       border-radius:nxsass(panel, border-radius) nxsass(panel, border-radius) 0 nxsass(panel, border-radius);
+      &:last-child {
+        @extend %chosen-item;
+      }
+    }
+  }
+  &.is-left {
+    .toggle-label:last-child {
+    }
+    .toggle-label {
+      text-align: center;
+      border-radius:nxsass(panel, border-radius) nxsass(panel, border-radius) nxsass(panel, border-radius) 0;
+      &:first-child {
+         @extend %chosen-item;
+      }
+    }
+  }
+}
+
+.toggle--3button {
+  @extend .toggle--button;
+  .toggle-label {
+    width:$third;
+  }
+  &.is-first {
+    .toggle-label:nth-child(1) {
+       @extend %chosen-item;
+    }
+  }
+  &.is-second {
+    .toggle-label:nth-child(2) {
+       @extend %chosen-item;
+    }
+  }
+  &.is-third {
+    .toggle-label:nth-child(3) {
+       @extend %chosen-item;
+    }
+  }
+}
+
+.toggle--4button {
+  @extend .toggle--3button;
+  .toggle-label {
+    width:$quarter;
+  }
+    &.is-fourth {
+    .toggle-label:nth-child(4) {
+       @extend %chosen-item;
+    }
+  }
+}
