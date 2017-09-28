@@ -1,9 +1,11 @@
-﻿using ApiCoreTest.Models;
+﻿using System.IO;
+using ApiCoreTest.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.PlatformAbstractions;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace TodoCoreApi
@@ -26,7 +28,20 @@ namespace TodoCoreApi
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "ApiCoreTest-ToDoApi", Version = "v1" });
+                c.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "ApiCoreTest-ToDoApi",
+                    Description = "A simple example ASP.NET Core Web API",
+                    TermsOfService = "None",
+                    Contact = new Contact { Name = "Kevin Finck", Email = "", Url = "https://KevinFinck@Hotmail.com" },
+                    License = new License { Name = "Use under LICX", Url = "https://example.com/license" }
+                });
+
+                // Set the comments path for the Swagger JSON and UI.
+                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
+                var xmlPath = Path.Combine(basePath, "ApiCoreTest.xml");
+                c.IncludeXmlComments(xmlPath);
             });
         }
 

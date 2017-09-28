@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiCoreTest.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     public class TodoController : Controller
     {
@@ -25,12 +26,21 @@ namespace ApiCoreTest.Controllers
             }
         }
 
+        /// <summary>
+        /// Get all the latest and greatest and awesomestest stuff you can ever hope to find! Period!!!
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<TodoItem> GetAll()
         {
             return _context.TodoItems.ToList();
         }
 
+        /// <summary>
+        /// Get Todo item by ID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}", Name = "GetTodo")]
         public IActionResult GetById(long id)
         {
@@ -42,7 +52,26 @@ namespace ApiCoreTest.Controllers
             return new ObjectResult(item);
         }
 
+        /// <summary>
+        /// Creates a TodoItem.
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Todo
+        ///     {
+        ///        "id": 1,
+        ///        "name": "Item1",
+        ///        "isComplete": true
+        ///     }
+        /// </remarks>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        /// <response code="201">Returns the newly-created item</response>
+        /// <response code="400">If the item is null</response>            
         [HttpPost]
+        [ProducesResponseType(typeof(TodoItem), 201)]
+        [ProducesResponseType(typeof(TodoItem), 400)]
         public IActionResult Create([FromBody] TodoItem item)
         {
             if (item == null)
@@ -56,6 +85,12 @@ namespace ApiCoreTest.Controllers
             return CreatedAtRoute("GetTodo", new { id = item.Id }, item);
         }
 
+        /// <summary>
+        /// Updates an existing item. Returns 404 if it doesn't exist.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="item"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Update(long id, [FromBody] TodoItem item)
         {
@@ -78,6 +113,11 @@ namespace ApiCoreTest.Controllers
             return new NoContentResult();
         }
 
+        /// <summary>
+        /// Say bye-bye...
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
