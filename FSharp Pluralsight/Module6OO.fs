@@ -62,4 +62,5 @@ type PersonFromInterface(firstname: string, lastname: string) =
         member this.Firstname = firstname
         member this.Lastname = lastname
         member this.Fullname = sprintf "%s %s" firstname lastname
-        
+let pi = PersonFromInterface("Yet", "Another")        
+printf "\n%s\n" (pi :> IPerson).Fullname;;
