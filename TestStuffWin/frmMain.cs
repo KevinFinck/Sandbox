@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
-using Incomm.Libraries.Cryptography;
+//using Incomm.Libraries.Cryptography;
 
 //using Giftango.Component.Utility;
 

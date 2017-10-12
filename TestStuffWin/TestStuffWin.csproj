@@ -36,12 +36,8 @@
       <HintPath>packages\BouncyCastle.1.7.0\lib\Net40-Client\BouncyCastle.Crypto.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Giftango.Component.Utility">
-      <HintPath>..\..\Enterprise-Apps\Component\Utility\bin\Debug\Giftango.Component.Utility.dll</HintPath>
-    </Reference>
-    <Reference Include="Incomm.Libraries.Cryptography, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Incomm.Libraries.Cryptography.2.2.1\lib\net45\Incomm.Libraries.Cryptography.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Incomm.Libraries.Cryptography, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Incomm.Libraries.Cryptography.2.3.1.0\lib\net45\Incomm.Libraries.Cryptography.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
