@@ -34,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="LunchTypes.fs" />
     <Compile Include="Models\*.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

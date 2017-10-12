@@ -24,8 +24,12 @@ let webApp =
         GET >=>
             choose [
                 route "/" >=> razorHtmlView "Index" { Text = "Hello world, from Giraffe!" }
+                route "/what" >=> razorHtmlView "Index" { Text = "What???" }
+                route "/hello-json" >=> json [| "Hello,"; "use"; "JSON!" |] // An F# array of strings.
+                route "/goodbye-xml" >=> xml "Goodbye, XML!"                
             ]
-        setStatusCode 404 >=> text "Not Found" ]
+        setStatusCode 404 >=> text "Try again dude!" 
+    ]
 
 // ---------------------------------
 // Error handler
