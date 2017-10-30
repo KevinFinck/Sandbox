@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace XamarinSamples
+﻿namespace XamarinTests
 {
     public class Class1
     {
