@@ -4,9 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
-//using Incomm.Libraries.Cryptography;
-
-//using Giftango.Component.Utility;
+using Ninja;
 
 namespace TestStuffWin
 {
@@ -14,6 +12,15 @@ namespace TestStuffWin
     {
         public frmMain()
         {
+
+            var conn = Ninja.ConnectionInfo.GetConnectionString("motr", ServerEnvironmentNames.DEV);
+
+            var x = "1,2 ,3, 4, ,, 99"
+                .Split(',')
+                .Where(s => !string.IsNullOrWhiteSpace(s))
+                .Select(s => int.Parse(s?.Trim() ?? ""))
+                .ToList();
+
             InitializeComponent();
         }
 
