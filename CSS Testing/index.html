@@ -21,6 +21,60 @@
             I am text inside the outer box.
         </div>
 
-        <script src="" async defer></script>
+        <div class="outer boxFlowContext">
+            <div class="float">I am a floated element.</div>
+            I am text inside the outer box with overflow: auto.
+        </div>
+
+        <div class="outer">
+            <div class="float">I am a floated element.</div>
+            I have lots and lots of text.
+            I have lots and lots of text.
+            I have lots and lots of text.
+            I have lots and lots of text.
+            I have lots and lots of text.
+            I have lots and lots of text.
+            I have lots and lots of text.
+            I have lots and lots of text.
+            I have lots and lots of text.
+            I have lots and lots of text.
+            I have lots and lots of text.
+        </div>
+        <div class="outer">
+            <div class="float">I am a floated element.</div>
+            <div class="boxFlowContext">
+                My floater is forced into a column, kind of.
+                I have lots and lots of text.
+                I have lots and lots of text.
+                I have lots and lots of text.
+                I have lots and lots of text.
+                I have lots and lots of text.
+                I have lots and lots of text.
+                I have lots and lots of text.
+                I have lots and lots of text.
+                I have lots and lots of text.
+                I have lots and lots of text.
+            </div>
+        </div>
+
+
+
+        <div class="outerGray">
+            <p>
+                This is a paragraph. Margin 20 top and bottom.
+            </p>
+            <p>
+                This is a paragraph. Margin 20 top and bottom.
+            </p>
+        </div>
+        <div class="outerGray boxFlowContext">
+            <p>
+                And I'm in a BFC.
+            </p>
+            <p>
+                Me too.
+            </p>
+        </div>
+
     </body>
 </html>
