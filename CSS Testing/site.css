@@ -37,3 +37,19 @@ p {
     background-color: rgb(233, 78, 119);
     color: #fff;
 }
+
+
+/* Clearfix */
+.myClass{
+  border: 5px dashed rgb(64, 75, 240);
+  border-radius: 5px;
+  width: 450px;
+  padding: 10px;
+  margin-bottom: 40px;
+}
+.group::after {
+  content: "";
+  display: table;
+  clear: both;
+  /* Future:  display: flow-root; */
+}
