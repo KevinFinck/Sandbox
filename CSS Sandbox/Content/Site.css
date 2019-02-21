@@ -1,0 +1,138 @@
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.report-header {
+    float: left;
+    font-size: 18px;
+    line-height: 10px;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.morehover:hover {
+    background: lightgrey;
+    text-decoration: none;
+}
+
+div.today {
+    background: #D0E4F5;
+}
+div.tomorrow {
+    background:  papayawhip;
+}
+
+.tagday {
+    float: left;
+    padding: 10px;
+    margin-bottom: 5px;
+    background: #EEEEEE;
+    border-radius: 1em;
+    box-shadow: gray 0.5em 0.5em 0.3em;
+}
+.tagday-label {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+th.highlight, 
+td.highlight {
+     /*background: deepskyblue*/
+    background: palegoldenrod;
+}
+
+th.hour {
+    text-align: center;
+}
+td.hour {
+    text-align: center;
+}
+td.etsr {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.timer {
+    float: left;
+}
+
+
+table.blueTable {
+    border: 1px solid #1C6EA4;
+    background-color: #EEEEEE;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+table.blueTable td, table.blueTable th {
+    border: 1px solid #AAAAAA;
+    padding: 3px 5px;
+}
+table.blueTable tbody td {
+    font-size: 13px;
+}
+table.blueTable tr:nth-child(even) {
+    background: #D0E4F5;
+}
+table.blueTable thead {
+    background: #1C6EA4;
+    background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+    background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+    background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+    border-bottom: 2px solid #444444;
+}
+table.blueTable thead th {
+    font-weight: bold;
+    color: #FFFFFF;
+    border-left: 2px solid #D0E4F5;
+}
+table.blueTable thead th:first-child {
+    border-left: none;
+}
+
+table.blueTable tfoot {
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background: #D0E4F5;
+    background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+    background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+    background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+    border-top: 2px solid #444444;
+}
+table.blueTable tfoot td {
+    font-size: 14px;
+}
+table.blueTable tfoot .links {
+    text-align: right;
+}
+table.blueTable tfoot .links a{
+    display: inline-block;
+    background: #1C6EA4;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+
+/* Responsive: Portrait tablets and up 
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+
+    .body-content {
+        padding: 0;
+    }
+}
+*/
