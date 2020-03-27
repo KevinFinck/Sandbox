@@ -105,6 +105,7 @@
     <Compile Include="ServiceLocator\MyServiceLocator.cs" />
     <Compile Include="ServiceLocator\ServiceLocator.cs" />
     <Compile Include="SystemDateTime.cs" />
+    <Compile Include="Types.cs" />
     <Compile Include="WhoCalledMe.cs" />
     <Compile Include="Wrappers\BusinessId.cs" />
     <Compile Include="YieldTest.cs" />
