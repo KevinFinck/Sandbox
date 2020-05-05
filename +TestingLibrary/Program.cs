@@ -27,6 +27,12 @@ namespace TestingLibrary
 
         }
 
+        private static void ReadWriteAppDataRoaming()
+        {
+            var appPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            //...
+        }
+
         private static void TestCallerInfo()
         {
             Console.WriteLine(WhoCalledMe.WhoCalled());
