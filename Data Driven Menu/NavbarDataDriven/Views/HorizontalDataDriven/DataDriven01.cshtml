@@ -1,0 +1,22 @@
+﻿@model BSMenuItemManager1
+
+@{
+  ViewBag.Title = "Data Driven Navbar";
+}
+
+<!-- ********************************** -->
+<!-- Header Navigation Area -->
+<!-- ********************************** -->
+<nav class="navbar navbar-default navbar-static-top"
+     role="navigation">
+  <div class="container"> 
+    <ul class="nav navbar-nav">
+      @foreach (BSMenuItem1 item in Model.Menus)
+      {
+        <li>
+          <a href="@item.Action">@item.Title</a>
+        </li>
+      }
+    </ul>
+  </div>
+</nav>
